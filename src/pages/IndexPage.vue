@@ -17,7 +17,7 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'IndexPage',
   components: { ExampleComponent },
-  setup () {
+  setup() {
     const todos = ref<Todo[]>([
       {
         id: 1,

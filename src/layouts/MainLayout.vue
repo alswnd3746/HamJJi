@@ -3,11 +3,11 @@
     <q-header elevated>
       <q-toolbar>
         <q-btn
-          flat
-          dense
-          round
-          icon="menu"
           aria-label="Menu"
+          dense
+          flat
+          icon="menu"
+          round
           @click="toggleLeftDrawer"
         />
 
@@ -21,8 +21,8 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       bordered
+      show-if-above
     >
       <q-list>
         <q-item-label
@@ -101,16 +101,16 @@ export default defineComponent({
     EssentialLink
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
 
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
       }
-    }
+    };
   }
 });
 </script>
