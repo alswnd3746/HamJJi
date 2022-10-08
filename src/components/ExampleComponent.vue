@@ -24,7 +24,8 @@ import {
   Ref,
 } from 'vue';
 import { Todo, Meta } from './models';
-import { useCounterStore } from 'stores/example-store';
+import { useCounterStore } from 'src/stores/example-store';
+import { ExampleData } from 'src/ts/example';
 
 
 function useClickCount() {
@@ -32,7 +33,7 @@ function useClickCount() {
 
   function increment() {
     clickCount.value += 1
-
+    console.log(ExampleData);
     return clickCount.value;
   }
 
