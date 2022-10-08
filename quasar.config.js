@@ -64,7 +64,10 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      env: {},
+      env: {
+        // TODO: api url 환경변수 설정
+        // API: JSON.stringify('https://api.example.com'),
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
