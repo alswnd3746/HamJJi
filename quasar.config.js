@@ -65,8 +65,9 @@ module.exports = configure(function (/* ctx */) {
       // publicPath: '/',
       // analyze: true,
       env: {
-        // TODO: api url 환경변수 설정
+        // TODO: api url 환경변수 설정 / jwt token 환경변수 설정
         // API: JSON.stringify('https://api.example.com'),
+        // JWT: JSON.stringify('jwt'),
       },
       // rawDefine: {}
       // ignorePublicFolder: true,

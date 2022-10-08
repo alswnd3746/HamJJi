@@ -4,6 +4,7 @@ export const useCounterStore = defineStore('counter', {
   state: () => ({
     counter: 0,
     userData: {},
+    jwt: '',
   }),
   getters: {
     doubleCount: (state) => state.counter * 2,
@@ -16,8 +17,6 @@ export const useCounterStore = defineStore('counter', {
     registerUser() {
       try {
         // axios call
-
-        console.log('hello');
 
         fetch('https://jsonplaceholder.typicode.com/todos/1')
           .then((res: object) => {
