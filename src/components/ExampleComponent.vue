@@ -9,6 +9,8 @@
     <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
     <p>Active: {{ active ? 'yes' : 'no' }}</p>
     <p>Clicks on todos: {{ clickCount }}</p>
+    <p>{{ counter }}</p>
+    <p>pinia api call</p>
   </div>
 </template>
 
@@ -22,11 +24,15 @@ import {
   Ref,
 } from 'vue';
 import { Todo, Meta } from './models';
+import { useCounterStore } from 'stores/example-store';
+
 
 function useClickCount() {
   const clickCount = ref(0);
+
   function increment() {
     clickCount.value += 1
+
     return clickCount.value;
   }
 
@@ -58,7 +64,29 @@ export default defineComponent({
     }
   },
   setup (props) {
-    return { ...useClickCount(), ...useDisplayTodo(toRef(props, 'todos')) };
+    const store = useCounterStore()
+    const { name, counter, userData, doubleCount, registerUser } = store
+
+    store.registerUser()
+
+    return {
+      // will always be "Eduardo"
+      name,
+      // will always be 0
+      counter,
+      userData,
+      doubleCount,
+      registerUser,
+
+      // will also always be 0
+      doubleNumber: store.doubleCount,
+
+      // ✅ this one will be reactive
+      doubleValue: computed(() => store.doubleCount),
+
+      ...useClickCount(),
+      ...useDisplayTodo(toRef(props, 'todos'))
+    };
   },
 });
 </script>
